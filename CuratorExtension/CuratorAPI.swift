@@ -24,7 +24,7 @@ class CuratorAPI {
 			self.currentDataTask = nil
 			if let e = error {
 				dispatch_async(dispatch_get_main_queue(), {
-					callback(nil, e as? NSError)
+					callback(nil, e)
 					})
 				return
 			}
@@ -33,7 +33,7 @@ class CuratorAPI {
 				var JSONObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(d, options: .fromMask(0), error: &JSONError)
 				if let e = JSONError {
 					dispatch_async(dispatch_get_main_queue(), {
-						callback(nil, e as? NSError)
+						callback(nil, e)
 						})
 					return
 				}
